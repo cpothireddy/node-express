@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(homeRoutes);
 app.use('/users', adminRoutes);
 
+// if there is no route match above then the below one will call with 404
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
